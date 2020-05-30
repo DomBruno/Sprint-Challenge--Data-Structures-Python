@@ -13,10 +13,36 @@ f.close()
 duplicates = []  # Return the list of duplicates in this data structure
 
 # Replace the nested for loops below with your improvements
-for name_1 in names_1:
+
+
+#Make a stash box
+stash_box = {}
+
+#Add names to stash box
+for name in names_1:
+    if name not in stash_box:
+        stash_box[name] = name
+
+for name in names_2:
+    if name in stash_box:
+        duplicates.append(name)
+
+
+
+
+
+""" combo_list = names_1 + names_2
+combo_list.sort()
+
+for name in combo_list:
+    if combo_list[name] == combo_list[name - 1]:
+        duplicates.append(combo_list[i]) """
+
+
+""" for name_1 in names_1:
     for name_2 in names_2:
         if name_1 == name_2:
-            duplicates.append(name_1)
+            duplicates.append(name_1) """
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
